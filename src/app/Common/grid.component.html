@@ -1,0 +1,27 @@
+<count [all]="getCountOfProducts()" [brand]="getCountOfPoliceBrandCount()"
+(countRadioButtonChange)="onProductCountChange($event)">
+    
+</count>
+<br> <br>
+<table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Description</th>
+        <th>Brand</th>
+        <th>Date Modified</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <ng-container  *ngFor="let product of Products">
+      <tr *ngIf="selectedProductCountRadioButton=='All'|| selectedProductCountRadioButton==product.brand">
+        <td>{{product.productName}}</td>
+        <td>{{product.productDescription}}</td>
+        <td>{{product.brand}}</td>
+        <td>{{product.updated | date:'fullDate'}}</td>
+      </tr>
+    </ng-container>
+    
+    </tbody>
+  </table>

@@ -1,0 +1,20 @@
+
+<div *ngFor="let product of Products">
+<div class="col-sm-4"> 
+    <div class="panel panel-primary">
+      <div class="panel-heading">{{product.productName}}</div>
+      <div class="panel-body">
+        <a [routerLink]="['/productDetails',product.productID]">
+          <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+       </a>     
+      </div>
+      <div class="panel-footer">
+        <div class="d-flex">
+        <div >{{product.amount}}</div>
+        <div class="ml-auto"><button type="button" (click)='addToCartOnClick()' class="btn btn-success">ADD</button></div>
+      </div>   
+      </div>
+    </div>
+  </div>
+
+</div>
