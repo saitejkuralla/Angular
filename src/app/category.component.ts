@@ -5,8 +5,8 @@ import {CategoryService} from './DataService/CategoryService';
 
 @Component({
   selector: 'category',
-  templateUrl: './category.component.html',
-  providers:[CategoryService]
+  templateUrl: './category.component.html'
+  
  
 })
 
@@ -22,7 +22,12 @@ export class CategoryComponent implements OnInit{
       }
       ngOnInit()
       {
-        this.categories=this._categoryService.getCategories();
+        
+        this._categoryService.getCategories().subscribe((categoryData)=>{
+          console.log("hi");
+        this.categories=categoryData;
+        });
+        debugger;
       }
 
   }
